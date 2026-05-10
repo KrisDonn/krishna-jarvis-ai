@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { Bot, Camera, Code2, Database, FileCode2, Globe2, HardDrive, Menu, Mic, Monitor, Plus, Power, Save, Search, Send, Settings, Sparkles, Terminal, Trash2, Wifi, X, Zap } from 'lucide-react';
 import './style.css';
 
-const API = 'http://localhost:8787';
+const API = '';
 const modes = ['Jarvis Operator', 'Live Ops', 'Vision', 'Senior Coding Assistant', 'Deep Research', 'Agent'];
 
 function App() {
@@ -267,4 +267,5 @@ function App() {
 }
 
 createRoot(document.getElementById('root')).render(<App/>);
+
 
