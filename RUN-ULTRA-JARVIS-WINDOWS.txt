@@ -1,0 +1,31 @@
+RUN ULTRA JARVIS ON WINDOWS
+
+1) Open PowerShell in this folder:
+cd "$env:USERPROFILE\Downloads\krishna-ai-jarvis-ultra-pro\krishna-ai-assistant-pro"
+
+2) Install and create env:
+npm install
+Copy-Item .env.example .env -Force
+notepad .env
+
+3) Choose one AI provider:
+- OpenAI: set PROVIDER=openai and add OPENAI_API_KEY
+- Ollama free local: set PROVIDER=ollama, run: ollama serve, and: ollama pull llama3.2
+- Groq: set PROVIDER=groq and add GROQ_API_KEY
+
+4) Start:
+npm run dev
+
+5) Open:
+http://localhost:5173
+
+Ultra modules:
+- Screen AI: lets AI analyze your screen after permission
+- Camera AI: lets AI analyze webcam snapshot after permission
+- Live Web: works when TAVILY_API_KEY or SERPAPI_KEY is added
+- Wake Word: browser wake-word listener using Chrome speech recognition
+- Agent Planner: safe autonomous task planning
+- Mobile Link: open the Network URL on phone on same Wi-Fi
+
+Safety:
+This project uses safe operator mode. It does not do unrestricted hacking, malware, credential theft, or destructive desktop control.

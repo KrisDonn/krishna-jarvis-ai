@@ -1,0 +1,22 @@
+Run this in PowerShell:
+
+cd "$env:USERPROFILE\Downloads\krishna-ai-jarvis-pro-max-50\krishna-ai-assistant-pro"
+npm install
+Copy-Item .env.example .env -Force
+notepad .env
+npm run desktop
+
+If desktop mode has issue, run browser mode:
+npm run dev
+
+Open:
+http://localhost:5173
+
+Test commands:
+open calculator
+system status
+save note: Follow up UK leads today
+open youtube.com
+
+For AI vision/chat power, add OPENAI_API_KEY in .env.
+For live web search, add TAVILY_API_KEY or SERPAPI_KEY in .env.

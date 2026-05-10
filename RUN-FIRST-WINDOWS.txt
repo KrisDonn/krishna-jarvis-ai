@@ -1,0 +1,24 @@
+HOW TO RUN ON WINDOWS POWERSHELL
+
+1) Open PowerShell
+2) Run:
+
+cd "C:\Users\Administrator\Downloads\krishna-ai-assistant-super-powerful-fixed\krishna-ai-assistant-pro"
+npm install
+npm run dev
+
+3) Open browser:
+http://localhost:5173
+
+IMPORTANT:
+If chat says API key missing, create .env in krishna-ai-assistant-pro folder:
+
+OPENAI_API_KEY=paste_your_new_key_here
+AI_NAME=Krishna AI Pro
+OWNER_NAME=Krishna Dotel
+OWNER_ROLE=student and AI builder from Nepal
+PORT=8787
+MODEL=gpt-4.1-mini
+
+Then stop terminal with Ctrl+C and run:
+npm run dev

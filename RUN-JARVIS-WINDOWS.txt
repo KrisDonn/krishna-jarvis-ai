@@ -1,0 +1,39 @@
+HOW TO RUN KRISHNA AI PRO JARVIS VERSION ON WINDOWS
+
+1) Open PowerShell
+
+2) Go to your project folder:
+cd "C:\Users\Administrator\Downloads\krishna-ai-assistant-pro"
+
+If your folder is inside the old zip folder, use:
+cd "C:\Users\Administrator\Downloads\krishna-ai-assistant-super-powerful-fixed\krishna-ai-assistant-pro"
+
+3) Install packages:
+npm install
+
+4) Create .env if missing:
+Copy-Item .env.example .env
+notepad .env
+
+5) Paste your OpenAI key in .env:
+OPENAI_API_KEY=your_new_key_here
+
+6) Run:
+npm run dev
+
+7) Open browser:
+http://localhost:5173
+
+8) Choose mode: Jarvis Operator
+
+Try commands:
+open calculator
+open notepad
+open youtube.com
+system status
+save note: call UK student tomorrow
+list notes
+
+IMPORTANT:
+This Jarvis version is safe. It can open allowed apps and websites, read files, speak, listen, remember notes, and help with coding/research.
+It cannot become full Tony Stark Jarvis because real Iron Man Jarvis is fictional and far beyond current AI.

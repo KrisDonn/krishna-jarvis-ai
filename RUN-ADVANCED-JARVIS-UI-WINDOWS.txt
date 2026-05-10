@@ -1,0 +1,10 @@
+RUN THIS IN POWERSHELL:
+
+cd "$env:USERPROFILE\Downloads\krishna-ai-jarvis-hacker-ui-pro\krishna-ai-assistant-pro"
+npm install
+npm run dev
+
+OPEN IN BROWSER:
+http://localhost:5173
+
+If PDF upload error appears, this zip already includes the Node v24 pdf-parse fix.

@@ -1,0 +1,31 @@
+JARVIS DESKTOP PRO - WINDOWS RUN GUIDE
+
+1) Open PowerShell in this folder:
+   cd "$env:USERPROFILE\Downloads\krishna-ai-jarvis-desktop-pro\krishna-ai-assistant-pro"
+
+2) Install packages:
+   npm install
+
+3) Create .env:
+   Copy-Item .env.example .env -Force
+   notepad .env
+
+4) For web mode:
+   npm run dev
+   open http://localhost:5173
+
+5) For real desktop app mode:
+   npm run desktop
+
+Desktop mode adds:
+- Electron app window
+- direct screen capture without browser share popup
+- open project folder button
+- safe workspace file scanner
+- coding agent endpoint
+- same Jarvis voice/web/vision UI
+
+Important safety:
+- This version does NOT add malware/hacking tools.
+- Desktop/file actions are limited to your Jarvis project folder.
+- For strong AI, add OPENAI_API_KEY or GROQ_API_KEY, or run Ollama locally.

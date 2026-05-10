@@ -1,0 +1,26 @@
+HOW TO RUN - KRISHNA AI PRO CHATGPT LAYOUT
+
+1) Open VS Code terminal in this folder.
+
+2) Install packages:
+npm install
+
+3) Create env file:
+Copy-Item .env.example .env -Force
+notepad .env
+
+4) Paste your Groq API key in this line:
+GROQ_API_KEY=your_key_here
+
+5) Save Notepad with keyboard Ctrl+S, then close Notepad.
+
+6) Run:
+npm run dev
+
+7) Open:
+http://localhost:5173/
+
+NOTES:
+- Do not type CTRL+S in PowerShell. Press it on keyboard inside Notepad.
+- If 5173 is busy, Vite may show 5174. Open the Local link shown in terminal.
+- This version has ChatGPT-style layout: fixed left sidebar, centered chat, only chat scrolls.
