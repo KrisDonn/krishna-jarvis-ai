@@ -1,56 +1,43 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
+  res.setHeader("Content-Type", "application/json");
+
   if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method not allowed" });
+    return res.status(200).json({ reply: "API is working. Send POST request." });
   }
 
   try {
     const body = req.body || {};
-    const userText =
+    const text =
       body.message ||
-      body.prompt ||
       body.text ||
+      body.prompt ||
       body.messages?.filter(m => m.role === "user").at(-1)?.content ||
       body.messages?.filter(m => m.role === "user").at(-1)?.text ||
-      "";
+      "hello";
 
-    const messages = [
-      {
-        role: "system",
-        content: "You are Krishna AI Pro, a helpful advanced AI assistant."
-      },
-      ...(body.messages || []).map(m => ({
-        role: m.role === "assistant" ? "assistant" : "user",
-        content: m.content || m.text || ""
-      })),
-    ];
-
-    if (!body.messages && userText) {
-      messages.push({ role: "user", content: userText });
+    if (!process.env.GROQ_API_KEY) {
+      return res.status(200).json({ reply: "Missing GROQ_API_KEY in Vercel Environment Variables." });
     }
 
     const r = await fetch("https://api.groq.com/openai/v1/chat/completions", {
       method: "POST",
       headers: {
-        Authorization: "Bearer " + process.env.GROQ_API_KEY,
+        "Authorization": "Bearer " + process.env.GROQ_API_KEY,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
         model: process.env.GROQ_MODEL || "llama-3.3-70b-versatile",
-        messages
+        messages: [
+          { role: "system", content: "You are Krishna AI Pro, a helpful AI assistant." },
+          { role: "user", content: text }
+        ]
       })
     });
 
     const data = await r.json();
-
-    if (!r.ok) {
-      return res.status(500).json({
-        reply: data.error?.message || "Groq API error"
-      });
-    }
-
-    const reply = data.choices?.[0]?.message?.content || "No response.";
+    const reply = data.choices?.[0]?.message?.content || data.error?.message || "No response from Groq.";
     return res.status(200).json({ reply, text: reply, message: reply });
   } catch (e) {
-    return res.status(500).json({ reply: e.message });
+    return res.status(200).json({ reply: "Server error: " + e.message });
   }
 }
