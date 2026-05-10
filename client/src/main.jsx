@@ -60,7 +60,7 @@ function App() {
     });
     const text = await res.text();
     let data = {};
-    try { data = text ? JSON.parse(text) : {}; } catch { throw new Error('Server returned non-JSON. Restart with npm run dev.'); }
+    try { data = text ? JSON.parse(text) : {}; } catch { throw new Error('API Error'); }
     if (!res.ok) throw new Error(data.error || 'Request failed');
     return data;
   }
@@ -267,5 +267,6 @@ function App() {
 }
 
 createRoot(document.getElementById('root')).render(<App/>);
+
 
 
